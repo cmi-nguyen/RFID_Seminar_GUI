@@ -1,4 +1,4 @@
-package com.example.rfid_seminar_gui;
+package App;
 
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;

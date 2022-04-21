@@ -1,8 +1,9 @@
 module com.example.rfid_seminar_gui {
     requires javafx.controls;
     requires javafx.fxml;
+    requires java.sql;
 
 
-    opens com.example.rfid_seminar_gui to javafx.fxml;
-    exports com.example.rfid_seminar_gui;
+    opens App to javafx.fxml;
+    exports App;
 }
