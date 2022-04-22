@@ -1,14 +1,56 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import java.lang.*?>
-<?import java.util.*?>
-<?import javafx.scene.*?>
-<?import javafx.scene.control.*?>
-<?import javafx.scene.layout.*?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.VBox?>
 
-<AnchorPane xmlns="http://javafx.com/javafx"
-            xmlns:fx="http://javafx.com/fxml"
-            fx:controller="UI.Dashboard"
-            prefHeight="400.0" prefWidth="600.0">
-
+<AnchorPane prefHeight="515.0" prefWidth="720.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="UI.Controller">
+   <children>
+      <VBox layoutX="14.0" layoutY="14.0" prefHeight="489.0" prefWidth="177.0">
+         <children>
+            <ImageView fitHeight="150.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true" />
+            <Button id="nav_btn" accessibleText="home_btn" alignment="TOP_LEFT" mnemonicParsing="false" onAction="#connect_btn_func" prefHeight="32.0" prefWidth="201.0" text="Connect">
+               <graphic>
+                  <ImageView fitHeight="24.0" fitWidth="24.0" pickOnBounds="true" preserveRatio="true" />
+               </graphic>
+               <VBox.margin>
+                  <Insets top="20.0" />
+               </VBox.margin>
+               <padding>
+                  <Insets left="50.0" />
+               </padding>
+            </Button>
+            <Button id="nav_btn" alignment="TOP_LEFT" layoutX="10.0" layoutY="160.0" mnemonicParsing="false" onAction="#scan_btn_func" prefHeight="32.0" prefWidth="201.0" text="Scan">
+               <graphic>
+                  <ImageView fitHeight="24.0" fitWidth="24.0" pickOnBounds="true" preserveRatio="true" />
+               </graphic>
+               <VBox.margin>
+                  <Insets top="20.0" />
+               </VBox.margin>
+               <padding>
+                  <Insets left="50.0" />
+               </padding>
+            </Button>
+         </children>
+      </VBox>
+      <Button layoutX="425.0" layoutY="439.0" mnemonicParsing="false" onAction="#delete_item_func" text="Delete item" />
+      <Button layoutX="249.0" layoutY="439.0" mnemonicParsing="false" onAction="#accept_btn_func" prefHeight="25.0" prefWidth="78.0" text="Accept" />
+      <Button layoutX="604.0" layoutY="439.0" mnemonicParsing="false" onAction="#cancel_order_func" prefHeight="25.0" prefWidth="78.0" text="Cancel" />
+      <Label layoutX="249.0" layoutY="31.0" prefHeight="32.0" prefWidth="154.0" text="Bill" />
+      <TableView fx:id="table" layoutX="246.0" layoutY="61.0" prefHeight="321.0" prefWidth="436.0">
+         <columns>
+            <TableColumn fx:id="productInstanceId" prefWidth="119.0" resizable="false" text="productInstanceId" />
+            <TableColumn fx:id="product_name" prefWidth="124.0" text="productName" />
+            <TableColumn fx:id="price" prefWidth="97.0" text="price" />
+            <TableColumn fx:id="date" prefWidth="95.0" text="date" />
+         </columns>
+      </TableView>
+      <Label fx:id="total" layoutX="570.0" layoutY="390.0" prefHeight="17.0" prefWidth="109.0" text="total" />
+      <Label layoutX="475.0" layoutY="390.0" text="Total : l" />
+   </children>
 </AnchorPane>

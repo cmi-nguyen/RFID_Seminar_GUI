@@ -49,7 +49,7 @@ public class TestConnect {
 
     }
     // this test readTag function
-    public static void TestintializeTag() throws CAENRFIDException {
+    public static void TestInitializeTag() throws CAENRFIDException {
        HashMap<String,String> listTag= Read.ReadTag();
         Set<String> keySet = listTag.keySet();
         for (String key : keySet) {
