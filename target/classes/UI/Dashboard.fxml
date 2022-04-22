@@ -1,14 +1,31 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import java.lang.*?>
-<?import java.util.*?>
-<?import javafx.scene.*?>
-<?import javafx.scene.control.*?>
-<?import javafx.scene.layout.*?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.VBox?>
 
-<AnchorPane xmlns="http://javafx.com/javafx"
-            xmlns:fx="http://javafx.com/fxml"
-            fx:controller="UI.Dashboard"
-            prefHeight="400.0" prefWidth="600.0">
-
+<AnchorPane prefHeight="515.0" prefWidth="720.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="UI.Controller">
+   <children>
+      <VBox layoutX="14.0" layoutY="14.0" prefHeight="489.0" prefWidth="177.0">
+         <children>
+            <ImageView fitHeight="150.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true" />
+            <Button id="home" mnemonicParsing="false" onAction="#home" prefHeight="32.0" prefWidth="201.0" text="Home">
+               <graphic>
+                  <ImageView fitHeight="24.0" fitWidth="24.0" pickOnBounds="true" preserveRatio="true" />
+               </graphic>
+            </Button>
+            <Button id="create_order" layoutX="10.0" layoutY="160.0" mnemonicParsing="false" onAction="#create_order" prefHeight="32.0" prefWidth="201.0" text="Create Order">
+               <graphic>
+                  <ImageView fitHeight="24.0" fitWidth="24.0" pickOnBounds="true" preserveRatio="true" />
+               </graphic>
+            </Button>
+            <Button id="bill_list" layoutX="10.0" layoutY="192.0" mnemonicParsing="false" onAction="#bill_list" prefHeight="32.0" prefWidth="201.0" text="List of bill">
+               <graphic>
+                  <ImageView fitHeight="24.0" fitWidth="24.0" pickOnBounds="true" preserveRatio="true" />
+               </graphic>
+            </Button>
+         </children>
+      </VBox>
+   </children>
 </AnchorPane>
