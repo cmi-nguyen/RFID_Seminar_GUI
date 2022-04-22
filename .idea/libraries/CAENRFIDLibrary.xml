@@ -1,0 +1,9 @@
+<component name="libraryTable">
+  <library name="CAENRFIDLibrary">
+    <CLASSES>
+      <root url="jar://E:/RFID SDK/SDK_4_7_0/JAVA/WIN32/CAENRFIDLibrary.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>
