@@ -42,7 +42,7 @@ public class DAL_Bill {
      */
     public Boolean addBill(DTO_Bill bill) throws Exception {
         myConnectUnit = new MyConnectUnit();
-
+        HashMap<String,Object> insertFroreig=new HashMap<>();
         // tạo đối tượng truyền vào
         HashMap<String, Object> insertValues = new HashMap<>();
         insertValues.put("bill_id",bill.getBill_ID());
@@ -52,13 +52,13 @@ public class DAL_Bill {
         //todo bill detail has list product
         for (String ProductLine: bill.getProductInstance()
              ) {
-            HashMap<String,Object> insertFroreig=new HashMap<>();
+
             insertFroreig.put("bill_id",bill.getBill_ID());
             insertFroreig.put("product_instance_id",ProductLine);
-            Boolean checkK = myConnectUnit.Insert("billdetails", insertFroreig);
+
         }
 
-
+        Boolean checkK = myConnectUnit.Insert("billdetails", insertFroreig);
         myConnectUnit.Close();
         return check;
     }
