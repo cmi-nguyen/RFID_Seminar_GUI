@@ -6,7 +6,8 @@ module RFID.Seminar {
 
 
 
-
+    opens DTO;
+    exports DTO to java.base;
     exports UI;
     opens UI to javafx.fxml;
 

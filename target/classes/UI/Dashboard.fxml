@@ -44,13 +44,14 @@
       <Label layoutX="249.0" layoutY="31.0" prefHeight="32.0" prefWidth="154.0" text="Bill" />
       <TableView fx:id="table" layoutX="246.0" layoutY="61.0" prefHeight="321.0" prefWidth="436.0">
          <columns>
-            <TableColumn fx:id="productInstanceId" prefWidth="119.0" resizable="false" text="productInstanceId" />
-            <TableColumn fx:id="product_name" prefWidth="124.0" text="productName" />
-            <TableColumn fx:id="price" prefWidth="97.0" text="price" />
-            <TableColumn fx:id="date" prefWidth="95.0" text="date" />
+            <TableColumn fx:id="idCol" prefWidth="119.0" resizable="false" text="productInstanceId" />
+            <TableColumn fx:id="nameCol" prefWidth="124.0" text="productName" />
+            <TableColumn fx:id="priceCol" prefWidth="97.0" text="price" />
+            <TableColumn fx:id="dateCol" prefWidth="95.0" text="date" />
          </columns>
       </TableView>
       <Label fx:id="total" layoutX="570.0" layoutY="390.0" prefHeight="17.0" prefWidth="109.0" text="total" />
-      <Label layoutX="475.0" layoutY="390.0" text="Total : l" />
+      <Label layoutX="475.0" layoutY="390.0" text="Total :" />
+      <Label fx:id="BILL_ID" layoutX="306.0" layoutY="39.0" prefHeight="17.0" prefWidth="109.0" text="ID" />
    </children>
 </AnchorPane>

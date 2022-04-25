@@ -18,6 +18,8 @@ public class DTO_Bill {
         this.productInstance = productLines;
     }
 
+
+
     public String getBill_ID() {
         return bill_ID;
     }

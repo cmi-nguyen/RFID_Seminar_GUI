@@ -55,10 +55,10 @@ public class DAL_Bill {
 
             insertFroreig.put("bill_id",bill.getBill_ID());
             insertFroreig.put("product_instance_id",ProductLine);
-
+            Boolean checkK = myConnectUnit.Insert("billdetails", insertFroreig);
         }
 
-        Boolean checkK = myConnectUnit.Insert("billdetails", insertFroreig);
+
         myConnectUnit.Close();
         return check;
     }
