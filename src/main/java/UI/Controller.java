@@ -87,8 +87,13 @@ public class Controller {
     public void delete_item_func (){
         System.out.println("Delete item in order "); // debug code
         //code
-        DTO_Observable_Bill selected = table.getSelectionModel().getSelectedItem();
-        data.remove(selected);
+        if (data==null){
+            System.out.println("Data is Null");
+        }
+        else {
+            DTO_Observable_Bill selected = table.getSelectionModel().getSelectedItem();
+            data.remove(selected);
+        }
 
         // reset label
 
