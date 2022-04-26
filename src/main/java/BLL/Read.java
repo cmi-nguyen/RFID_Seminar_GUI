@@ -53,6 +53,7 @@ public class Read {
 		}catch(Exception ex) {
 			System.out.println(ex);
 			if(MyReader != null)MyReader.Disconnect();
+
 		}
         return FreeID;
 	}
