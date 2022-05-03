@@ -18,16 +18,10 @@
             <ImageView fitHeight="192.0" fitWidth="201.0" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@../Assets/img/remlogo2.png" />
-               </image>
-               <VBox.margin>
-                  <Insets top="20.0" />
-               </VBox.margin></ImageView>
+               </image></ImageView>
             <Button id="nav_btn" accessibleText="home_btn" alignment="TOP_LEFT" mnemonicParsing="false" onAction="#connect_btn_func" prefHeight="32.0" prefWidth="201.0" style="-fx-background-color: #3498db; -fx-border-radius: 3px; -fx-border-color: #ecf0f1;" text="Connect" textFill="#ecf0f1">
                <graphic>
-                  <ImageView fitHeight="40.0" fitWidth="40.0" pickOnBounds="true" preserveRatio="true">
-                     <image>
-                        <Image url="@../Assets/icon/rfid_icon.png" />
-                     </image></ImageView>
+                  <ImageView fitHeight="24.0" fitWidth="24.0" pickOnBounds="true" preserveRatio="true" />
                </graphic>
                <VBox.margin>
                   <Insets top="20.0" />
@@ -36,15 +30,12 @@
                   <Insets left="50.0" />
                </padding>
                <font>
-                  <Font name="System Bold" size="18.0" />
+                  <Font name="System Bold" size="12.0" />
                </font>
             </Button>
             <Button id="nav_btn" alignment="TOP_LEFT" layoutX="10.0" layoutY="160.0" mnemonicParsing="false" onAction="#scan_btn_func" prefHeight="32.0" prefWidth="201.0" style="-fx-background-color: #3498db; -fx-border-color: #ecf0f1; -fx-border-radius: 3px;" text="Scan" textFill="#ecf0f1">
                <graphic>
-                  <ImageView fitHeight="40.0" fitWidth="40.0" pickOnBounds="true" preserveRatio="true">
-                     <image>
-                        <Image url="@../Assets/icon/scan_icon.png" />
-                     </image></ImageView>
+                  <ImageView fitHeight="24.0" fitWidth="24.0" pickOnBounds="true" preserveRatio="true" />
                </graphic>
                <VBox.margin>
                   <Insets top="20.0" />
@@ -53,26 +44,26 @@
                   <Insets left="50.0" />
                </padding>
                <font>
-                  <Font name="System Bold" size="18.0" />
+                  <Font name="System Bold" size="12.0" />
                </font>
             </Button>
          </children>
       </VBox>
       <Button layoutX="425.0" layoutY="439.0" mnemonicParsing="false" onAction="#delete_item_func" style="-fx-background-color: #3498db; -fx-border-color: #ecf0f1; -fx-border-radius: 3px;" text="Delete item" textFill="#ecf0f1">
          <font>
-            <Font name="System Bold" size="14.0" />
+            <Font name="System Bold" size="12.0" />
          </font></Button>
       <Button layoutX="249.0" layoutY="439.0" mnemonicParsing="false" onAction="#accept_btn_func" prefHeight="25.0" prefWidth="78.0" style="-fx-background-color: #2ecc71; -fx-border-radius: 3px; -fx-border-color: #ecf0f1;" stylesheets="@../css/css.css" text="Accept" textFill="#ecf0f1">
          <font>
-            <Font name="System Bold" size="14.0" />
+            <Font name="System Bold" size="12.0" />
          </font></Button>
       <Button layoutX="604.0" layoutY="439.0" mnemonicParsing="false" onAction="#cancel_order_func" prefHeight="25.0" prefWidth="78.0" style="-fx-background-color: #e74c3c; -fx-border-color: #ecf0f1; -fx-border-radius: 3px;" styleClass="cancel_btn" stylesheets="@../css/css.css" text="Cancel" textFill="#ecf0f1">
          <font>
-            <Font name="System Bold" size="14.0" />
+            <Font name="System Bold" size="12.0" />
          </font></Button>
-      <Label layoutX="249.0" layoutY="31.0" prefHeight="32.0" prefWidth="120.0" text="Bill" textFill="#ecf0f1">
+      <Label layoutX="249.0" layoutY="31.0" prefHeight="32.0" prefWidth="154.0" text="Bill" textFill="#ecf0f1">
          <font>
-            <Font name="System Bold" size="14.0" />
+            <Font name="System Bold" size="12.0" />
          </font></Label>
       <TableView fx:id="table" layoutX="246.0" layoutY="61.0" prefHeight="321.0" prefWidth="436.0" style="-fx-background-color: #ecf0f1;">
          <columns>
@@ -81,25 +72,16 @@
             <TableColumn fx:id="priceCol" prefWidth="112.0" resizable="false" text="Price" />
          </columns>
       </TableView>
-      <Label fx:id="total" layoutX="610.0" layoutY="390.0" prefHeight="17.0" prefWidth="72.0" textFill="#ecf0f1">
+      <Label fx:id="total" layoutX="570.0" layoutY="390.0" prefHeight="17.0" prefWidth="109.0" textFill="#ecf0f1" />
+      <Label layoutX="475.0" layoutY="390.0" text="Total :" textFill="#ecf0f1">
          <font>
-            <Font size="14.0" />
+            <Font name="System Bold" size="12.0" />
          </font></Label>
-      <Label layoutX="562.0" layoutY="390.0" text="Total :" textFill="#ecf0f1">
+      <Label fx:id="BILL_ID" layoutX="306.0" layoutY="39.0" prefHeight="17.0" prefWidth="109.0" textFill="#ecf0f1" />
+      <Label layoutX="436.0" layoutY="39.0" text="Date:" textFill="#ecf0f1">
          <font>
-            <Font name="System Bold" size="14.0" />
+            <Font name="System Bold" size="12.0" />
          </font></Label>
-      <Label fx:id="BILL_ID" layoutX="288.0" layoutY="37.0" prefHeight="17.0" prefWidth="109.0" textFill="#ecf0f1">
-         <font>
-            <Font size="14.0" />
-         </font></Label>
-      <Label layoutX="439.0" layoutY="37.0" text="Date:" textFill="#ecf0f1">
-         <font>
-            <Font name="System Bold" size="14.0" />
-         </font></Label>
-      <Label fx:id="date_value" layoutX="495.0" layoutY="37.0" prefHeight="17.0" prefWidth="109.0" textFill="#ecf0f1">
-         <font>
-            <Font size="14.0" />
-         </font></Label>
+      <Label fx:id="date_value" layoutX="492.0" layoutY="39.0" prefHeight="17.0" prefWidth="109.0" textFill="#ecf0f1" />
    </children>
 </AnchorPane>

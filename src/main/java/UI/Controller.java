@@ -1,8 +1,10 @@
 package UI;
 
 import BLL.HandleScan;
+import DAL.DAL_Bill;
 import DTO.DTO_Bill;
 import DTO.DTO_Observable_Bill;
+import DTO.DTO_ProductLine;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
@@ -27,6 +29,9 @@ public class Controller {
     public TableColumn<DTO_Observable_Bill, String> priceCol;
     public TableView<DTO_Observable_Bill> table;
     public ObservableList<DTO_Observable_Bill>data;
+    HandleScan scannedData;
+    DTO_Bill order;
+
 
     // controller
     public void connect_btn_func (){
@@ -37,23 +42,19 @@ public class Controller {
         // this.total.setText("Nguyn");
     }
 
-    public void scan_btn_func()  {
+    public void scan_btn_func() throws Exception {
         System.out.println("Scan with desktop reader"); // debug code
         // code
-
-        // inform data as ObservableList
-
-       // HandleScan scannedData = new HandleScan();
-       // DTO_Bill bill = scannedData.orderScan();
-        Date today = new Date(2022,4,26);
-        List<String>list = new ArrayList<>();
-        list.add("Huaweiiii");
-        DTO_Bill bill = new DTO_Bill("new bill",today,100f,list);
+        scannedData = new HandleScan();
+        order= scannedData.orderScan();
 
 
-        data = FXCollections.observableArrayList(
-                new DTO_Observable_Bill("test","test","tét")
-        );
+
+        //Date today = new Date(2022-1900,4,26);
+
+
+
+        data = FXCollections.observableArrayList();
 
         // column constructor inside () is the column name
         idCol.setCellValueFactory(
@@ -68,20 +69,30 @@ public class Controller {
 
         // add ObservableList to Table
         table.setItems(data);
+        for (int i=0;i<order.getProductInstance().size();i++){
+            table.getItems().add(new DTO_Observable_Bill(order.getProductInstance().get(i)
+                    ,scannedData.FindProduct(order.getProductInstance().get(i)).getName()
+                    ,String.valueOf(scannedData.FindProduct(order.getProductInstance().get(i)).getPrice()) ));
+        }
 
-        table.getItems().add(new DTO_Observable_Bill("1","2","3"));
-        table.getItems().add(new DTO_Observable_Bill(String.valueOf(bill.getProductInstance().get(0)),
-            "Huawei y2", "45"  ));
-        table.setItems(data);
+
+
+
+
         // set label value
-        BILL_ID.setText(bill.getBill_ID());
-        total.setText(String.valueOf(bill.getTotal()));
-        date_value.setText(String.valueOf(today));
+        System.out.println("Scanned items: "+order.getProductInstance());
+        BILL_ID.setText(order.getBill_ID());
+        total.setText(String.valueOf(order.getTotal()));
+        date_value.setText(String.valueOf(order.getDate()));
     }
 
-    public void accept_btn_func (){
+    public void accept_btn_func () throws Exception {
         System.out.println("accept and save order"); // debug code
         // code
+        scannedData.saveOrder(order);
+        BILL_ID.setText(order.getBill_ID());
+        total.setText(String.valueOf(order.getTotal()));
+        date_value.setText(String.valueOf(order.getDate()));
     }
 
     public void delete_item_func (){
@@ -93,10 +104,25 @@ public class Controller {
         else {
             DTO_Observable_Bill selected = table.getSelectionModel().getSelectedItem();
             data.remove(selected);
+            String del_id=selected.getProductInstanceID();
+            List<String> list = order.getProductInstance();
+            list.remove(del_id);
+            order.setProductInstance(list);
+            Float newtotal = null;
+            for(int i =0;i<list.size();i++){
+                newtotal = scannedData.FindProduct(order.getProductInstance().get(i)).getPrice();
+            }
+
+            order.setTotal(newtotal);
+            System.out.println(list);
+            System.out.println("order items "+order.getProductInstance());
         }
 
         // reset label
 
+        BILL_ID.setText(order.getBill_ID());
+        total.setText(String.valueOf(order.getTotal()));
+        date_value.setText(String.valueOf(order.getDate()));
 
     }
 

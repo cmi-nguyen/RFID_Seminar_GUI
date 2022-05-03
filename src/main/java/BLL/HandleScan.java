@@ -29,6 +29,21 @@ public class HandleScan {
         }
         return null;
     }
+    public void SaveBill(DTO_Bill order) throws Exception {
+        DAL_Bill bill= new DAL_Bill();
+        bill.addBill(order);
+    }
+    public DTO_ProductLine FindProduct(String InstanceID){
+       // String in=FindProductByInstance(InstanceID);
+        String proID=FindProductByInstance(InstanceID);
+        for (DTO_ProductLine line: productLine.getListProduct()
+        ) {
+            if(line.getProductLineID().equals(proID)){
+                return line;
+            }
+        }
+        return null;
+    }
     public String FindProductByInstance(String InstanceID){
         for (DTO_ProductInstance in: instance.getListProductIn()
              ) {
@@ -56,7 +71,7 @@ public class HandleScan {
     public DTO_Bill orderScan() throws Exception {
         HandleScan hscan=new HandleScan();
         DAL_Bill bills=new DAL_Bill();
-         order=new DTO_Bill();
+        order=new DTO_Bill();
 
         Read scanner=new Read();
         //read tag and find instance
@@ -73,10 +88,10 @@ public class HandleScan {
             order.setProductInstance(productInstance);
             //set build id
             Random rand=new Random();
-            order.setBill_ID(String.valueOf(rand.nextInt()));
+            order.setBill_ID(String.valueOf(rand.nextInt(1,100)));
             //set total
             total+=hscan.FindProductByTag(entry.getKey()).getPrice();
-            //  System.out.println(hscan.FindProductByTag(entry.getKey()).getName());
+              System.out.println(hscan.FindProductByTag(entry.getKey()).getName());
             //set dates
             long millis=System.currentTimeMillis();
             java.sql.Date date=new java.sql.Date(millis);
@@ -85,18 +100,23 @@ public class HandleScan {
             //  System.out.println(order.getBill_ID()+order.getDate()+order.getTotal());
             for(String pro: order.getProductInstance()){
                 System.out.println(hscan.FindProductByInstance(pro));
+                System.out.println();
             }
 
         }
         order.setTotal(total);
         System.out.println(order.getBill_ID()+" " +" "+order.getDate()+" "+ order.getTotal());
-        bills.addBill(order);
+        //bills.addBill(order);
         return  order;
+    }
+    public void saveOrder(DTO_Bill order) throws Exception {
+        DAL_Bill bill=new DAL_Bill();
+        bill.addBill(order);
     }
 
     public static void main(String[] args) throws Exception {
         HandleScan Scan=new HandleScan();
         Scan.orderScan();
-        System.out.println(Scan.order.getBill_ID());
+        System.out.println("bill id: "+ Scan.order.getBill_ID());
     }
 }

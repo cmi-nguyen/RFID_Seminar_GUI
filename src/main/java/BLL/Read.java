@@ -10,6 +10,7 @@ public class Read {
 
 
 	public static void main(String[] args) throws Exception {
+		ReadTag();
 	}
 	/**
 	 * Lấy thông tin từ tag
@@ -51,7 +52,7 @@ public class Read {
 	    
 	        MyReader.Disconnect();
 		}catch(Exception ex) {
-			System.out.println(ex);
+			ex.printStackTrace();
 			if(MyReader != null)MyReader.Disconnect();
 
 		}
