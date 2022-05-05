@@ -20,6 +20,7 @@ public class Read {
 		// TODO Auto-generated method stub
 		CAENRFIDReader MyReader = new CAENRFIDReader();
 		try {
+			//MyReader.Connect(CAENRFIDPort.CAENRFID_RS232,"COM5");
 			MyReader.Connect(CAENRFIDPort.CAENRFID_TCP, "192.168.1.2");
 	        CAENRFIDLogicalSource MySource = MyReader.GetSource("Source_0");
 	        
@@ -54,7 +55,6 @@ public class Read {
 		}catch(Exception ex) {
 			ex.printStackTrace();
 			if(MyReader != null)MyReader.Disconnect();
-
 		}
         return FreeID;
 	}

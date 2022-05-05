@@ -1,26 +1,25 @@
 package UI;
 
 import BLL.HandleScan;
-import DAL.DAL_Bill;
 import DTO.DTO_Bill;
 import DTO.DTO_Observable_Bill;
-import DTO.DTO_ProductLine;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
+import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
 
-import java.sql.Date;
-import java.util.ArrayList;
+
 import java.util.List;
 
 
 public class Controller {
 
     @FXML
+    public Button Print_btn;
     public Label total;
     public Label date_value;
     public Label BILL_ID;
@@ -93,6 +92,7 @@ public class Controller {
         BILL_ID.setText(order.getBill_ID());
         total.setText(String.valueOf(order.getTotal()));
         date_value.setText(String.valueOf(order.getDate()));
+        Print_btn.setVisible(true);
     }
 
     public void delete_item_func (){
@@ -108,9 +108,9 @@ public class Controller {
             List<String> list = order.getProductInstance();
             list.remove(del_id);
             order.setProductInstance(list);
-            Float newtotal = null;
+            Float newtotal = 0f;
             for(int i =0;i<list.size();i++){
-                newtotal = scannedData.FindProduct(order.getProductInstance().get(i)).getPrice();
+                newtotal += scannedData.FindProduct(order.getProductInstance().get(i)).getPrice();
             }
 
             order.setTotal(newtotal);
@@ -139,20 +139,25 @@ public class Controller {
                 data.remove(0);
             }
         }
-
+        order = new DTO_Bill();
 
         // reset Label
+        Print_btn.setVisible(false);
         BILL_ID.setText("");
         total.setText("");
         date_value.setText("");
 
     }
 
-   /* public void new_scene() throws IOException {
+    public void Print_btn_func(){
+        System.out.println("Print Bill to PDF");
+    }
+
+   /* public void new_scene(String name) throws IOException {
         Stage stage =new Stage();
         FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("Test.fxml"));
         Scene scene = new Scene(fxmlLoader.load());
-        stage.setTitle("Hello!");
+        stage.setTitle(name);
         stage.setScene(scene);
         stage.show();
     } */
