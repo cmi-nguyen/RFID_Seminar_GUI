@@ -3,7 +3,7 @@ module RFID.Seminar {
     requires javafx.fxml;
     requires javafx.controls;
     requires CAENRFIDLibrary;
-
+    requires pdfbox.app;
 
 
     opens DTO;

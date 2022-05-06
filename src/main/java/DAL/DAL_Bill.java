@@ -3,6 +3,7 @@ package DAL;
 
 
 import DTO.DTO_Bill;
+import DTO.DTO_ProductInstance;
 
 import java.sql.ResultSet;
 import java.util.ArrayList;
@@ -13,6 +14,7 @@ public class DAL_Bill {
     MyConnectUnit myConnectUnit;
     String tableName="bill";
 
+
     /**
      * Lấy thông tin từ Database
      */
@@ -20,12 +22,21 @@ public class DAL_Bill {
         myConnectUnit = new MyConnectUnit();
 
         ResultSet result = this.myConnectUnit.Select(tableName,condition, orderBy);
+
         List<DTO_Bill> DTOs = new ArrayList<>();
+        myConnectUnit = new MyConnectUnit();
         while (result.next()) {
             DTO_Bill bill = new DTO_Bill();
             bill.setBill_ID(result.getString("bill_id"));
             bill.setDate(result.getDate("date"));
             bill.setTotal(result.getFloat("total"));
+
+            ResultSet instantRes=this.myConnectUnit.Select("billdetails","bill_id ="+bill.getBill_ID());
+            List<String> listIn=new ArrayList<>();
+                while (instantRes.next()){
+                    listIn.add(instantRes.getString("product_instance_id"));
+                }
+                bill.setProductInstance(listIn);
             DTOs.add(bill);
         }
         myConnectUnit.Close();
