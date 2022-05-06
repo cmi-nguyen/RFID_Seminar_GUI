@@ -1,6 +1,7 @@
 package UI;
 
 import BLL.HandleScan;
+import DAL.PdfTool;
 import DTO.DTO_Bill;
 import DTO.DTO_Observable_Bill;
 import javafx.collections.FXCollections;
@@ -149,18 +150,12 @@ public class Controller {
 
     }
 
-    public void Print_btn_func(){
-        System.out.println("Print Bill to PDF");
+    public void Print_btn_func() {
+        if(order!=null)
+        PdfTool.HandleMess(order);
+        else {
+            System.out.println("Doesn't have order yet");
+        }
     }
-
-   /* public void new_scene(String name) throws IOException {
-        Stage stage =new Stage();
-        FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("Test.fxml"));
-        Scene scene = new Scene(fxmlLoader.load());
-        stage.setTitle(name);
-        stage.setScene(scene);
-        stage.show();
-    } */
-
 
 }
