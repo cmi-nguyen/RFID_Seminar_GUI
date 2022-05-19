@@ -89,8 +89,6 @@ public class HandleScan {
 
             productInstance.add(instance);
             order.setProductInstance(productInstance);
-
-
             //set total
             total+=hscan.FindProductByTag(entry.getKey()).getPrice();
             //set dates

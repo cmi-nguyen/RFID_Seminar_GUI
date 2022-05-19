@@ -26,8 +26,9 @@ public class PdfTool {
         try{
                 List<String> sss = new ArrayList<>();
                 sss.add("HOA DON");
-                sss.add("Bill_ID               Date               ToTal");//phen qua men:)
-                sss.add(bill.getBill_ID() + "    " + bill.getDate() + "    " + bill.getTotal());
+                sss.add(bill.getBill_ID());
+                sss.add("Date               ToTal");//phen qua men:)
+                sss.add(bill.getDate() + "    " + bill.getTotal());
                 sss.add("===================================================");
                 sss.add("Product name    "+"Price");
                 for (String s : bill.getProductInstance()
