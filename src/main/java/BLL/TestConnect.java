@@ -1,8 +1,15 @@
 package BLL;
 
+import DAL.DAL_Bill;
+import DAL.DAL_ProductInstance;
+import DAL.DAL_ProductLine;
+import DTO.DTO_Bill;
+import DTO.DTO_ProductLine;
 import com.caen.RFIDLibrary.CAENRFIDException;
 
+import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Set;
 
 public class TestConnect {
@@ -21,40 +28,9 @@ public class TestConnect {
 //        }
 //    }
 //          test for handle scan
-/*
-//    public static void main(String[] args) throws Exception {
-//        //test add build to data base when read tag
-//        DAL_Bill bills=new DAL_Bill();
-//        DTO_Bill bill=new DTO_Bill();
-//        //set id
-//        bill.setBill_ID("3232123211231");
-//        //set total
-//        bill.setTotal(3232f);
-//        //
-//        List<String> idinstance=new ArrayList<>();
-//
-//        //this make to test, acctualy this need findingProduct function
-//        idinstance.add("1231231232131");
-//        idinstance.add("weqewweq1");
-//        bill.setProductInstance(idinstance);
-//        //set date
-//        long millis=System.currentTimeMillis();
-//       java.sql.Date date=new java.sql.Date(millis);
-//        bill.setDate(date);
-//        bills.addBill(bill);
-//    }
-*/
+
 
     public static void main(String[] args) throws Exception {
-
+       HandleScan hscan=new HandleScan();
     }
-    // this test readTag function
-    public static void TestInitializeTag() throws CAENRFIDException {
-       HashMap<String,String> listTag= Read.ReadTag();
-        Set<String> keySet = listTag.keySet();
-        for (String key : keySet) {
-            System.out.println(key + " - " + listTag.get(key));
-        }
-    }
-
 }

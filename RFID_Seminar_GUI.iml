@@ -47,20 +47,44 @@
         <jarDirectory url="file://$USER_HOME$/Downloads/openjfx-17.0.2_windows-x64_bin-sdk/javafx-sdk-17.0.2/lib" recursive="false" />
       </library>
     </orderEntry>
-    <orderEntry type="library" exported="" name="CAENRFIDLibrary" level="project" />
-    <orderEntry type="library" exported="" name="mysql-connector-java-5.1.40-bin" level="project" />
-    <orderEntry type="library" exported="" name="lib" level="project" />
     <orderEntry type="library" exported="" scope="TEST" name="Maven: org.junit.jupiter:junit-jupiter-api:5.8.1" level="project" />
     <orderEntry type="library" exported="" scope="TEST" name="Maven: org.opentest4j:opentest4j:1.2.0" level="project" />
     <orderEntry type="library" exported="" scope="TEST" name="Maven: org.junit.platform:junit-platform-commons:1.8.1" level="project" />
     <orderEntry type="library" exported="" scope="TEST" name="Maven: org.apiguardian:apiguardian-api:1.1.2" level="project" />
     <orderEntry type="library" exported="" scope="TEST" name="Maven: org.junit.jupiter:junit-jupiter-engine:5.8.1" level="project" />
     <orderEntry type="library" exported="" scope="TEST" name="Maven: org.junit.platform:junit-platform-engine:1.8.1" level="project" />
-    <orderEntry type="library" exported="" name="RXTXcomm" level="project" />
     <orderEntry type="module-library" exported="">
       <library>
         <CLASSES>
           <root url="jar://$MODULE_DIR$/src/main/java/Dependencies/pdfbox-app-2.0.26.jar!/" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES />
+      </library>
+    </orderEntry>
+    <orderEntry type="library" exported="" name="CAENRFIDLibrary" level="project" />
+    <orderEntry type="module-library" exported="">
+      <library>
+        <CLASSES>
+          <root url="jar://$MODULE_DIR$/src/main/java/Dependencies/CAENRFIDLibrary.jar!/" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES />
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library" exported="">
+      <library>
+        <CLASSES>
+          <root url="jar://$MODULE_DIR$/src/main/java/Dependencies/mysql-connector-java-5.1.40-bin.jar!/" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES />
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library" exported="">
+      <library>
+        <CLASSES>
+          <root url="jar://$MODULE_DIR$/src/main/java/Dependencies/RXTXcomm.jar!/" />
         </CLASSES>
         <JAVADOC />
         <SOURCES />

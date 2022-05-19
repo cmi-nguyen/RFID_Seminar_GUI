@@ -18,10 +18,28 @@ public class BLL_ProductLine {
     public void setListProduct(List<DTO_ProductLine> listProduct) {
         this.listProduct = listProduct;
     }
-
     public BLL_ProductLine() throws Exception {
        listProduct=new ArrayList<>();
         dal=new DAL_ProductLine();
         listProduct=dal.readDB();
+    }
+
+    public boolean Update(DTO_ProductLine productLine) {
+        try {
+            if(dal.update(productLine)){
+                for (DTO_ProductLine dto: listProduct) {
+                    if(dto.getProductLineID().equals(productLine.getProductLineID())){
+                        dto.setProductLineID(productLine.getProductLineID());
+                        dto.setName(productLine.getName());
+                        dto.setStock(productLine.getStock());
+                        dto.setPrice(productLine.getPrice());
+                    }
+                }
+                return true;
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return  false;
     }
 }
