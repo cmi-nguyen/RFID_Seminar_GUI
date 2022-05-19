@@ -7,6 +7,9 @@ import DTO.DTO_ProductInstance;
 import DTO.DTO_ProductLine;
 import DTO.DTO_TagRead;
 
+import java.nio.charset.StandardCharsets;
+import java.security.MessageDigest;
+import java.security.NoSuchAlgorithmException;
 import java.util.*;
 
 public class HandleScan {
@@ -86,18 +89,17 @@ public class HandleScan {
 
             productInstance.add(instance);
             order.setProductInstance(productInstance);
-            //set build id
-            Random rand=new Random();
-            order.setBill_ID(String.valueOf(rand.nextInt(1,100000)));
+
+
             //set total
             total+=hscan.FindProductByTag(entry.getKey()).getPrice();
             //set dates
             long millis=System.currentTimeMillis();
             java.sql.Date date=new java.sql.Date(millis);
+            //set build id
+            Random rand=new Random();
+            order.setBill_ID(Hash(String.valueOf(rand.nextInt(1,100)+millis)));
             order.setDate(date);
-
-
-
         }
         order.setTotal(total);
         //bills.addBill(order);
@@ -115,6 +117,24 @@ public class HandleScan {
             productLine.Update(product);
 
         }
+    }
+    private static String bytesToHex(byte[] hash) {
+        StringBuilder hexString = new StringBuilder(2 * hash.length);
+        for (int i = 0; i < hash.length; i++) {
+            String hex = Integer.toHexString(0xff & hash[i]);
+            if (hex.length() == 1) {
+                hexString.append('0');
+            }
+            hexString.append(hex);
+        }
+        return hexString.toString();
+    }
+
+    private static String Hash(String str) throws NoSuchAlgorithmException {
+        MessageDigest digest = MessageDigest.getInstance("SHA-256");
+        byte[] encodedhash = digest.digest(
+                str.getBytes(StandardCharsets.UTF_8));
+        return bytesToHex(encodedhash);
     }
 
 
