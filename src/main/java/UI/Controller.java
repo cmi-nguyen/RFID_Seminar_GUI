@@ -87,7 +87,7 @@ public class Controller {
                     ,scannedData.FindProduct(order.getProductInstance().get(i)).getName()
                     ,String.valueOf(scannedData.FindProduct(order.getProductInstance().get(i)).getPrice()) ));
         }
-        
+
         // set label value
         System.out.println("Scanned items: "+order.getProductInstance());
         BILL_ID.setText(order.getBill_ID());
