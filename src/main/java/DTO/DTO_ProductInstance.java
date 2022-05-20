@@ -3,6 +3,15 @@ package DTO;
 public class DTO_ProductInstance {
     private String productInstanceID;
     private String productLineID;
+    private int isPurchased;
+    public int getIsPurchased() {
+        return isPurchased;
+    }
+
+    public void setIsPurchased(int isPurchased) {
+        this.isPurchased = isPurchased;
+    }
+
 
     public DTO_ProductInstance() {
     }
