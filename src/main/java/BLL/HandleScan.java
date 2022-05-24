@@ -162,7 +162,8 @@ public class HandleScan {
                 str.getBytes(StandardCharsets.UTF_8));
         return bytesToHex(encodedhash);
     }
-    public boolean refund(DTO_Bill billReturn){
+    public String refund(DTO_Bill billReturn){
+        String NotPay="";
         DTO_ProductLine tmp=new DTO_ProductLine();
         DTO_ProductInstance tmpIn=new DTO_ProductInstance();
         for (String ins:billReturn.getProductInstance()
@@ -175,10 +176,15 @@ public class HandleScan {
                 productLine.Update(tmp);
                 tmpIn.setIsPurchased(0);
                 instances.Update(tmpIn);
-                return true;
+            }else {
+               NotPay=NotPay+"\n"+FindProduct(ins).getProductLineID()+" "+FindProduct(ins).getName();
             }
         }
-        return false;
+        if(!NotPay.equals(""))
+        return NotPay;
+        else{
+            return "All item has returned";
+        }
     }
 
 }

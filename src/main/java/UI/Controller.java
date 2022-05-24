@@ -36,11 +36,8 @@ public class Controller {
     // controller
     public void connect_btn_func (){
         if(order!=null){
-            if(scannedData.refund(order)) {
-                dialog("products has returned");
-            }else {
-                dialog("products not found in database");
-            }
+
+                dialog(scannedData.refund(order));
         }
 
     }

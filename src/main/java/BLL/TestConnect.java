@@ -4,6 +4,7 @@ import DAL.DAL_Bill;
 import DAL.DAL_ProductInstance;
 import DAL.DAL_ProductLine;
 import DTO.DTO_Bill;
+import DTO.DTO_ProductInstance;
 import DTO.DTO_ProductLine;
 import com.caen.RFIDLibrary.CAENRFIDException;
 
@@ -32,5 +33,11 @@ public class TestConnect {
 
     public static void main(String[] args) throws Exception {
        HandleScan hscan=new HandleScan();
+       DTO_Bill order =new DTO_Bill();
+       List<String> dds=new ArrayList<>();
+       DTO_ProductInstance ins=new DTO_ProductInstance();
+       dds.add("312312312312");
+       order.setProductInstance(dds);
+        System.out.println(hscan.refund(order)); ;
     }
 }
