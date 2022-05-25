@@ -38,6 +38,6 @@ public class TestConnect {
        DTO_ProductInstance ins=new DTO_ProductInstance();
        dds.add("312312312312");
        order.setProductInstance(dds);
-        System.out.println(hscan.refund(order)); ;
+        System.out.println(hscan.refund(order)+"is not pay"); ;
     }
 }

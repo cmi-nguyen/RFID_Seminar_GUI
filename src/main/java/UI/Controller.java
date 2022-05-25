@@ -58,8 +58,6 @@ public class Controller {
         scannedData = new HandleScan();
         order= scannedData.orderScan();
 
-
-
         //Date today = new Date(2022-1900,4,26);
 
 
@@ -96,7 +94,9 @@ public class Controller {
     }
 
     public void accept_btn_func () throws Exception {
-        System.out.println("accept and save order"); // debug code
+        if(order!=null){
+            dialog("save order");
+        }
         // code
         scannedData.saveOrder(order);
         BILL_ID.setText(order.getBill_ID());
